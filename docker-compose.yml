@@ -1,0 +1,22 @@
+services:
+  postgres:
+    build:
+      context: ./docker/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - pgnetwork
+
+  pgadmin:
+    build:
+      context: ./docker/pgadmin
+    ports:
+      - "8080:8080"
+    networks:
+      - pgnetwork
+
+volumes:
+  postgres_data:
+
+networks:
+  pgnetwork:
